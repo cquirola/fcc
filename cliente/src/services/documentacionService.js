@@ -4,6 +4,10 @@ const getDocumentaciones = () => {
   return axios.get(`${API_URL}/documentacion`);
 };
 
+const getDocumentacionById = (id) => {
+  return axios.get(`${API_URL}/documentacion/${id}`);
+};
+
 const deleteDocumentacion = (id) => {
   return axios.delete(`${API_URL}/documentacion/${id}`);
 };
@@ -24,7 +28,21 @@ const createDocumentacion = (documentacion) => {
   } )
 };
 
-const documentacionService={
-    getDocumentaciones, deleteDocumentacion, createDocumentacion, getTipoDocumentacion
-}
+const updateDocumentacion = (id, documentacion) => {
+  return axios.put(`${API_URL}/documentacion/${id}`, documentacion, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
+
+const documentacionService = {
+  getDocumentaciones,
+  getDocumentacionById,
+  deleteDocumentacion,
+  createDocumentacion,
+  updateDocumentacion,
+  getTipoDocumentacion,
+};
+
 export default documentacionService;

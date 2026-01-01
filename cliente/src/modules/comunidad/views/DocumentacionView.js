@@ -149,7 +149,7 @@ const Documentaciones = () => {
                         color="secondary"
                         size="small"
                         sx={{ mr: 1 }}
-                        onClick={() => navigate(`/fcc-comunidad/interacciones/${documentacion.id_documentacion}/editar`)}
+                        onClick={() => navigate(`/fcc-comunidad/documentacion/${documentacion.id_documentacion}/editar`)}
                       >
                         Editar
                       </Button>

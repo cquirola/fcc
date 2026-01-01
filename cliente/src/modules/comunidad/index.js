@@ -14,6 +14,7 @@ import EditPersonaView from './views/EditPersonaView';
 import NormativasView from './views/NormativasView';
 import Documentaciones from './views/DocumentacionView';
 import AddDocumentacionView from './views/AddDocumentacionView';
+import EditDocumentacionView from './views/EditDocumentacionView';
 
 const ComunidadModule = () => {
   return (
@@ -31,6 +32,7 @@ const ComunidadModule = () => {
       <Route path="/normativa" element={<NormativasView />} />
       <Route path="/documentacion" element={<Documentaciones />} />
       <Route path="/documentacion/nueva" element={<AddDocumentacionView />} />
+      <Route path="/documentacion/:id/editar" element={<EditDocumentacionView />} />
 
     </Routes>
   );
