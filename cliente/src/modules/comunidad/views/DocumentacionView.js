@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import NavbarAdmin from "../../../components/NavbarAdmin";
 import Drawer from "../../../components/Drawer";
 import documentacionService from '../../../services/documentacionService';
+import { API_IMAGE_URL } from '../../../services/apiConfig';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import { useMenu } from '../../../components/base/MenuContext';
@@ -119,7 +120,19 @@ const Documentaciones = () => {
                     <TableCell>{new Date(documentacion.fecha_emision_documentacion).toLocaleDateString()}</TableCell>
                     <TableCell>{new Date(documentacion.fecha_recepcion_documentacion).toLocaleDateString()}</TableCell>
                     <TableCell>{documentacion.estado_documentacion}</TableCell>
-                    <TableCell>{documentacion.archivo_url_documentacion}</TableCell>
+                    <TableCell>
+                      {documentacion.archivo_url_documentacion ? (
+                        <a
+                          href={`${API_IMAGE_URL}${documentacion.archivo_url_documentacion}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Ver archivo
+                        </a>
+                      ) : (
+                        '—'
+                      )}
+                    </TableCell>
                     <TableCell>{documentacion.observaciones_documentacion}</TableCell>
                     <TableCell>
                       <Button

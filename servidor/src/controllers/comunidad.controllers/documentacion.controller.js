@@ -3,14 +3,11 @@ const service = new DocumentacionService();
 
 
 const create = async ( req, res ) => {
-    try { 
+    try {
         const { body, file } = req;
-        if (file) {
-            body.archivo_url_documentacion = `/uploads/comunidad/documentaciones/${file.filename}`;
-        }
-        const response = await service.create(body);
+        const response = await service.createWithFile(body, file);
         res.json({ success: true, data: response});
-    
+
     } catch (error) {
         res.status(500).send({ success: false, message: error.message });
     }
@@ -39,8 +36,8 @@ const getById = async ( req, res ) => {
 const update = async (req, res) => {
     try {
         const { id } = req.params;
-        const body = req.body;
-        const response = await service.update(id,body);
+        const { body, file } = req;
+        const response = await service.updateWithFile(id, body, file);
         res.json(response);
     } catch (error) {
         res.status(500).send({ success: false, message: error.message });
