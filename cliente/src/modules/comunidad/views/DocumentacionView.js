@@ -140,7 +140,7 @@ const Documentaciones = () => {
                         color="primary"
                         size="small"
                         sx={{ mr: 1 }}
-                        onClick={() => navigate(`/fcc-comunidad/interacciones/${documentacion.id_documentacion}/detalles`)}
+                        onClick={() => navigate(`/fcc-comunidad/documentacion/${documentacion.id_documentacion}/detalles`)}
                       >
                         Detalles
                       </Button>
